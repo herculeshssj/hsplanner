@@ -64,5 +64,5 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/wildfly/plugins/wildfly-plugin-core/2.0.2.Final/wildfly-plugin-core-2.0.2.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/faces/jsf-api/2.2.20/jsf-api-2.2.20.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/faces/jsf-impl/2.2.20/jsf-impl-2.2.20.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/org/primefaces/primefaces/8.0/primefaces-8.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/primefaces/primefaces/10.0.0/primefaces-10.0.0.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>

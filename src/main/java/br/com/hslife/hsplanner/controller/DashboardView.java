@@ -28,6 +28,8 @@ public class DashboardView implements Serializable {
 		DashboardColumn column1 = new DefaultDashboardColumn();
 		DashboardColumn column2 = new DefaultDashboardColumn();
 		DashboardColumn column3 = new DefaultDashboardColumn();
+		DashboardColumn column4 = new DefaultDashboardColumn();
+		DashboardColumn column5 = new DefaultDashboardColumn();
 
 		column1.addWidget("sports");
 		column1.addWidget("finance");
@@ -40,6 +42,8 @@ public class DashboardView implements Serializable {
 		model.addColumn(column1);
 		model.addColumn(column2);
 		model.addColumn(column3);
+		model.addColumn(column4);
+		model.addColumn(column5);
 	}
 
 	public void handleReorder(DashboardReorderEvent event) {

@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <title>Task details</title>
 </h:head>
 
 <h:body>
-    <p>Task details</p>
+    <h:form>
+        <h:panelGrid columns="2">
+            <legend>Title:</legend>
+            <p:inputText />
+
+            <legend>Details:</legend>
+            <p:inputTextarea />
+
+            <legend>Created at:</legend>
+            <h:outputText />
+        </h:panelGrid>
+        <h:panelGrid columns="3">
+            <legend>Comment:</legend>
+            <p:inputTextarea />
+            <p:commandButton value="Save" />
+        </h:panelGrid>
+        <p:dataTable>
+            <p:column headerText="Previous comments">
+                <h:outputText value="Last comment" />
+            </p:column>
+            <p:column>
+                <p:commandButton value="Edit" />
+                <p:commandButton value="Delete" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
 </h:body>
 
 </html>

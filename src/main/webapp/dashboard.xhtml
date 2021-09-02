@@ -131,9 +131,10 @@
                     <p:dashboard id="board" model="#{dashboardController.model}">
                         <p:ajax event="reorder" listener="#{dashboardController.handleReorder}" update="msgs" />
 
-                        <p:panel id="sports" header="Sports" toggleable="true" toggleSpeed="500">
-                            <h:outputText value="Sports Content" /><br/>
-                            <p:commandButton value="View" icon="pi pi-home" action="#{dashboardController.viewProducts}" styleClass="p-mr-2" />
+                        <p:panel id="sports" header="Exemplo de título longo para saber como a tarefa ficará disposta no dashboard. Este é o caso quando preciso dar detalhes suficientes a uma tarefa logo no título da mesma." toggleable="true" toggleSpeed="500">
+                            <p:commandLink value="Sports Content" action="#{dashboardController.viewProducts}" styleClass="p-mr-2">
+                                <f:setPropertyActionListener target="#{dashboardController.mensagemBemVindo}" value="Olá mundo :)" />
+                            </p:commandLink>
                         </p:panel>
 
                         <p:panel id="finance" header="Finance" toggleable="true" toggleSpeed="500">

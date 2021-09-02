@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.PrimeFaces;
@@ -20,10 +20,12 @@ import org.primefaces.model.DefaultDashboardColumn;
 import org.primefaces.model.DefaultDashboardModel;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class DashboardController implements Serializable {
 
     private DashboardModel model;
+
+    private String mensagemBemVindo;
 
     @PostConstruct
 	public void init() {
@@ -96,5 +98,13 @@ public class DashboardController implements Serializable {
         options.put("contentHeight", "100%");
         options.put("headerElement", "customheader");
         PrimeFaces.current().dialog().openDynamic("details", options, null);
+    }
+
+    public String getMensagemBemVindo() {
+        return mensagemBemVindo;
+    }
+
+    public void setMensagemBemVindo(String mensagemBemVindo) {
+        this.mensagemBemVindo = mensagemBemVindo;
     }
 }

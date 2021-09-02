@@ -6,7 +6,7 @@
 
 <h:head>
     <title>
-        <h:outputText value="#{helloworld.message}" />
+        <h:outputText value="#{dashboardController.message}" />
     </title>
     <link rel="stylesheet" href="resources/css/bootstrap/bootstrap.min.css" />
     <link href="resources/css/site.css" rel="stylesheet" />
@@ -128,8 +128,8 @@
 
                 <div class="content px-4">
                     <!-- Dashboard -->
-                    <p:dashboard id="board" model="#{dashboardView.model}">
-                        <p:ajax event="reorder" listener="#{dashboardView.handleReorder}" update="msgs" />
+                    <p:dashboard id="board" model="#{dashboardController.model}">
+                        <p:ajax event="reorder" listener="#{dashboardController.handleReorder}" update="msgs" />
 
                         <p:panel id="sports" header="Sports" toggleable="true" toggleSpeed="500">
                             <h:outputText value="Sports Content" />

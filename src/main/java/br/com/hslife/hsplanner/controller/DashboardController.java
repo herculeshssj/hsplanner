@@ -18,7 +18,7 @@ import org.primefaces.model.DefaultDashboardModel;
 
 @ManagedBean
 @ViewScoped
-public class DashboardView implements Serializable {
+public class DashboardController implements Serializable {
 
     private DashboardModel model;
 
@@ -48,6 +48,10 @@ public class DashboardView implements Serializable {
 		model.addColumn(column4);
 		model.addColumn(column5);
 	}
+
+    public String getMessage() {
+        return "HSplanner - Gestão ágil e inteligente";
+    }
 
 	public void handleReorder(DashboardReorderEvent event) {
 		FacesMessage message = new FacesMessage();

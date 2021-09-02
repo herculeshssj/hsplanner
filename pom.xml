@@ -9,8 +9,7 @@
   <packaging>war</packaging>
 
   <name>hsplanner Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://github.com/herculeshssj/hsplanner</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -43,6 +42,14 @@
       <artifactId>primefaces</artifactId>
       <version>10.0.0</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.googlecode.owasp-java-html-sanitizer/owasp-java-html-sanitizer -->
+    <dependency>
+      <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+      <artifactId>owasp-java-html-sanitizer</artifactId>
+      <version>20200713.1</version>
+    </dependency>
+
 
     <dependency>
       <groupId>junit</groupId>

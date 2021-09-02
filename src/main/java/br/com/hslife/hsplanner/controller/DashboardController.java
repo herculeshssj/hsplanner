@@ -100,6 +100,19 @@ public class DashboardController implements Serializable {
         PrimeFaces.current().dialog().openDynamic("details", options, null);
     }
 
+    public void newTask() {
+        Map<String,Object> options = new HashMap<>();
+        options.put("resizable", true);
+        options.put("draggable", true);
+        options.put("modal", true);
+        options.put("width", 640);
+        options.put("height", 480);
+        options.put("contentWidth", "100%");
+        options.put("contentHeight", "100%");
+        options.put("headerElement", "customheader");
+        PrimeFaces.current().dialog().openDynamic("new", options, null);
+    }
+
     public String getMensagemBemVindo() {
         return mensagemBemVindo;
     }

@@ -10,7 +10,7 @@ import javax.faces.bean.ViewScoped;
 public class HelloWorldBean implements Serializable {
 
     public String getMessage() {
-        return "Hello World from Fuertefentura";
+        return "HSplanner - Gestão ágil e inteligente";
     }
     
 }

@@ -1,6 +1,8 @@
 package br.com.hslife.hsplanner.controller;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -8,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.PrimeFaces;
 import org.primefaces.event.CloseEvent;
 import org.primefaces.event.DashboardReorderEvent;
 import org.primefaces.event.ToggleEvent;
@@ -81,4 +84,17 @@ public class DashboardController implements Serializable {
 	public DashboardModel getModel() {
 		return model;
 	}
+
+    public void viewProducts() {
+        Map<String,Object> options = new HashMap<>();
+        options.put("resizable", true);
+        options.put("draggable", true);
+        options.put("modal", true);
+        options.put("width", 640);
+        options.put("height", 480);
+        options.put("contentWidth", "100%");
+        options.put("contentHeight", "100%");
+        options.put("headerElement", "customheader");
+        PrimeFaces.current().dialog().openDynamic("details", options, null);
+    }
 }

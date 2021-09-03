@@ -74,10 +74,8 @@
 
                 <!-- Menu bar -->
                 <p:menubar>
-                    <p:submenu label="Tasks" icon="pi pi-fw pi-file">
-                        <p:menuitem value="New" icon="pi pi-fw pi-plus" action="#{dashboardController.newTask}"/>
-                    </p:submenu>
-                    
+                    <p:menuitem value="New Task" icon="pi pi-fw pi-plus" action="#{dashboardController.newTask}" />
+
                     <f:facet name="options">
                         <h:outputText value="Welcome logged user." />
 
@@ -85,7 +83,7 @@
                             <i class="pi pi-fw pi-search" />
                             <p:inputText placeholder="Search" />
                         </div>
-                        
+
                         <p:button value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" />
                     </f:facet>
                 </p:menubar>
@@ -96,45 +94,132 @@
                     <p:dashboard id="board" model="#{dashboardController.model}">
                         <p:ajax event="reorder" listener="#{dashboardController.handleReorder}" update="msgs" />
 
-                        <p:panel id="sports" header="Exemplo de título longo para saber como a tarefa ficará disposta no dashboard. Este é o caso quando preciso dar detalhes suficientes a uma tarefa logo no título da mesma." toggleable="true" toggleSpeed="500">
-                            <p:commandLink value="Sports Content" action="#{dashboardController.viewProducts}" styleClass="p-mr-2">
-                                <f:setPropertyActionListener target="#{dashboardController.mensagemBemVindo}" value="Olá mundo :)" />
-                            </p:commandLink>
+                        <p:panel id="sports" header="Sports" toggleable="true" toggleSpeed="500">
+                            <div>
+                                <p:tag styleClass="p-mr-2" value="Primary"></p:tag>
+                            </div>
+                            <div>
+                                <p:commandLink value="Sports Content" action="#{dashboardController.viewProducts}"
+                                    styleClass="p-mr-2">
+                                    <f:setPropertyActionListener target="#{dashboardController.mensagemBemVindo}"
+                                        value="Olá mundo :)" />
+                                </p:commandLink>
+                            </div>
                         </p:panel>
 
-                        <p:panel id="finance" header="Finance" toggleable="true" toggleSpeed="500">
-                            <h:outputText value="Finance Content" /><br/>
-                            <p:commandButton value="View" icon="pi pi-home" action="#{dashboardController.viewProducts}" styleClass="p-mr-2" />
+                        <p:panel id="finance" header="Finance" toggleable="true" toggleSpeed="500" widgetVar="panel">
+                            <div>
+                                <p:tag styleClass="bg-primary">
+                                    Primary
+                                </p:tag>
+                            </div>
+                            <div>
+                                <p:commandLink value="Finance Content" action="#{dashboardController.viewProducts}"
+                                    styleClass="p-mr-2" />
+                            </div>
+                            <h:panelGrid columns="3" cellspacing = "15" cellpadding = "15">
+                                <p:badge value="2">
+                                    <i class="pi pi-bell" style="font-size: 2rem" />
+                                </p:badge>
+                                <p:badge value="10+" severity="danger">
+                                    <i class="pi pi-calendar p-ml-4" style="font-size: 2rem" />
+                                </p:badge>
+
+                                <p:badge severity="danger">
+                                    <i class="pi pi-envelope p-ml-4" style="font-size: 2rem" />
+                                </p:badge>
+                            </h:panelGrid>
+
+                            <f:facet name="options">
+                                <p:menu>
+                                    <p:submenu label="Settings">
+                                        <p:menuitem value="Toggle" url="#" icon="pi pi-clone"
+                                            onclick="PF('panel').toggle()" />
+                                        <p:menuitem value="Remove" url="#" icon="pi pi-times"
+                                            onclick="PF('panel').close()" />
+                                    </p:submenu>
+                                </p:menu>
+                            </f:facet>
+                            <f:facet name="actions">
+                                <p:commandLink styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default">
+                                    <h:outputText styleClass="ui-icon pi pi-question" />
+                                </p:commandLink>
+                                <p:commandLink styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default">
+                                    <h:outputText styleClass="ui-icon pi pi-star" />
+                                </p:commandLink>
+                            </f:facet>
                         </p:panel>
 
                         <p:panel id="lifestyle" header="Lifestyle" toggleable="true" toggleSpeed="500">
-                            <h:outputText value="Lifestyle Content" /><br/>
-                            <p:commandButton value="View" icon="pi pi-home" action="#{dashboardController.viewProducts}" styleClass="p-mr-2" />
+                            <div>
+                                <p:tag styleClass="bg-success">
+                                    Success
+                                </p:tag>
+                            </div>
+                            <div>
+                                <p:commandLink value="Lifestyle Content" action="#{dashboardController.viewProducts}"
+                                    styleClass="p-mr-2" />
+                            </div>
                         </p:panel>
 
                         <p:panel id="weather" header="Weather" toggleable="true" toggleSpeed="500">
-                            <h:outputText value="Weather Content" /><br/>
-                            <p:commandButton value="View" icon="pi pi-home" action="#{dashboardController.viewProducts}" styleClass="p-mr-2" />
+                            <div>
+                                <p:tag styleClass="bg-info">
+                                    Info
+                                </p:tag>
+                            </div>
+                            <div>
+                                <p:commandLink value="Weather Content" action="#{dashboardController.viewProducts}"
+                                    styleClass="p-mr-2" />
+                            </div>
                         </p:panel>
 
                         <p:panel id="politics" header="Politics" toggleable="true" toggleSpeed="500">
-                            <h:outputText value="Politics Content" /><br/>
-                            <p:commandButton value="View" icon="pi pi-home" action="#{dashboardController.viewProducts}" styleClass="p-mr-2" />
+                            <div>
+                                <p:tag styleClass="bg-warning">
+                                    Warning
+                                </p:tag>
+                            </div>
+                            <div>
+                                <p:commandLink value="Politics Content" action="#{dashboardController.viewProducts}"
+                                    styleClass="p-mr-2" />
+                            </div>
                         </p:panel>
 
                         <p:panel id="tech" header="Technology" toggleable="true" toggleSpeed="500">
-                            <h:outputText value="Technology Content" /><br/>
-                            <p:commandButton value="View" icon="pi pi-home" action="#{dashboardController.viewProducts}" styleClass="p-mr-2" />
+                            <div>
+                                <p:tag styleClass="bg-danger">
+                                    Danger
+                                </p:tag>
+                            </div>
+                            <div>
+                                <p:commandLink value="Technology Content" action="#{dashboardController.viewProducts}"
+                                    styleClass="p-mr-2" />
+                            </div>
                         </p:panel>
 
                         <p:panel id="health" header="Health" toggleable="true" toggleSpeed="500">
-                            <h:outputText value="Health Content" /><br/>
-                            <p:commandButton value="View" icon="pi pi-home" action="#{dashboardController.viewProducts}" styleClass="p-mr-2" />
+                            <div>
+                                <p:tag styleClass="bg-secondary">
+                                    Secondary
+                                </p:tag>
+                            </div>
+                            <div>
+                                <p:commandLink value="Health Content" action="#{dashboardController.viewProducts}"
+                                    styleClass="p-mr-2" />
+                            </div>
                         </p:panel>
 
                         <p:panel id="fashion" header="Fashion" toggleable="true" toggleSpeed="500">
-                            <h:outputText value="Fashion Content" /><br/>
-                            <p:commandButton value="View" icon="pi pi-home" action="#{dashboardController.viewProducts}" styleClass="p-mr-2" />
+                            <div>
+                                <p:tag styleClass="bg-dark">
+                                    Dark
+                                </p:tag>
+                            </div>
+                            <div>
+                                <p:commandLink value="Fashion Content" action="#{dashboardController.viewProducts}"
+                                    styleClass="p-mr-2" />
+                            </div>
                         </p:panel>
                     </p:dashboard>
                 </div>

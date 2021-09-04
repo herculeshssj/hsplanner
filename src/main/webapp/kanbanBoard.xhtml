@@ -26,49 +26,49 @@
     </style>
 
     <app>
-        <h:form>
 
-            <!-- Notifications -->
-            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+        <div class="sidebar">
+            <div class="top-row pl-4 navbar navbar-dark">
+                <a class="navbar-brand" href="">HSplanner</a>
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
 
-            <div class="sidebar">
-                <div class="top-row pl-4 navbar navbar-dark">
-                    <a class="navbar-brand" href="">HSplanner</a>
-                    <button class="navbar-toggler">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-
-                <div>
-
+            <div>
+                <h:form id="frmProjects">
+                    <!-- Notifications -->
+                    <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
                     <ul class="nav flex-column">
                         <li class="nav-item px-3">
                             <a class="nav-link" href="">
                                 <span class="oi oi-home" aria-hidden="true"></span> Home
                             </a>
                         </li>
-                        
+                        <p:repeat value="#{kanbanBoardView.listProjects}" var="project" id="lstProjects">
                             <li class="nav-item px-3">
                                 <a class="nav-link" href="counter">
-                                    <span class="oi oi-list-rich" aria-hidden="true"></span> Project 1
+                                    <span class="oi oi-list-rich" aria-hidden="true"></span> <h:outputText value="#{project.title}"/>
                                 </a>
                             </li>
-                        
-                        
+                        </p:repeat>
                         <li class="nav-item px-3">
                             <p:commandLink action="#{kanbanBoardView.newProject}" styleClass="nav-link">
                                 <p:ajax event="dialogReturn" listener="#{kanbanBoardView.onSavingProject}"
-                                    update="msgs" />
+                                    update="msgs, frmProjects" />
                                 <span class="oi oi-plus" aria-hidden="true"></span> New Project...
                             </p:commandLink>
                         </li>
                     </ul>
-
-                </div>
+                </h:form>
             </div>
+        </div>
 
-            <div class="main">
+        <div class="main">
+            <h:form>
 
+            <!-- Notifications -->
+            <p:growl id="growl" showDetail="true" skipDetailIfEqualsSummary="true" />
                 <!-- Menu bar -->
                 <p:menubar>
                     <p:menuitem value="New Task" icon="pi pi-fw pi-plus" action="#{dashboardController.newTask}" />
@@ -89,7 +89,7 @@
                 <div class="content px-4">
                     <!-- Dashboard -->
                     <p:dashboard id="board" model="#{dashboardController.model}">
-                        <p:ajax event="reorder" listener="#{dashboardController.handleReorder}" update="msgs" />
+                        <p:ajax event="reorder" listener="#{dashboardController.handleReorder}" update="growl" />
 
                         <p:panel id="sports" header="Sports" toggleable="true" toggleSpeed="500">
                             <div>
@@ -220,10 +220,8 @@
                         </p:panel>
                     </p:dashboard>
                 </div>
-
-            </div>
-        </h:form>
-
+            </h:form>
+        </div>
     </app>
 
 </h:body>

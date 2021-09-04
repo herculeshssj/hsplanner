@@ -1,5 +1,6 @@
 package br.com.hslife.hsplanner.view;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +19,7 @@ import br.com.hslife.hsplanner.vo.ProjectVO;
 
 @ManagedBean
 @SessionScoped
-public class KanbanBoardView {
+public class KanbanBoardView implements Serializable{
 
     // Mock
     private List<ProjectVO> listProjects = new ArrayList<>();
@@ -34,6 +35,8 @@ public class KanbanBoardView {
         options.put("resizable", false);
         options.put("draggable", true);
         options.put("modal", true);
+        options.put("width", 320);
+        options.put("height", 240);
         options.put("contentWidth", "100%");
         options.put("contentHeight", "100%");
         options.put("headerElement", "customheader");
@@ -48,6 +51,7 @@ public class KanbanBoardView {
         ProjectVO project = event.getObject();
 
         listProjects.add(project);
+        this.project = new ProjectVO();
 
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Project", "Project created!"));
     }
